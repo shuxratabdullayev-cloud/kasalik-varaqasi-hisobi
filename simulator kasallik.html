@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAXR MADAD KONSALT – Buxgalteriya Maktabi</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0e1a;
+  --card:#111827;
+  --card2:#1a2235;
+  --gold:#f5c518;
+  --gold2:#e8a000;
+  --blue:#3b82f6;
+  --green:#10b981;
+  --red:#ef4444;
+  --purple:#8b5cf6;
+  --orange:#f97316;
+  --text:#e2e8f0;
+  --muted:#94a3b8;
+  --border:#1e293b;
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-height:100vh;overflow-x:hidden;}
+
+/* HEADER */
+.site-header{background:linear-gradient(135deg,#0d1b2a,#1a1040);padding:18px 30px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--gold);box-shadow:0 4px 30px rgba(0,0,0,.5);}
+.logo-text{font-family:'Cinzel',serif;color:var(--gold);font-size:1.1rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;line-height:1.3;}
+.logo-sub{font-size:.7rem;color:var(--muted);letter-spacing:3px;font-family:'Nunito',sans-serif;}
+.header-badge{background:var(--gold);color:#0a0e1a;padding:6px 14px;border-radius:20px;font-size:.75rem;font-weight:800;letter-spacing:1px;}
+
+/* NAV TABS */
+.tab-nav{display:flex;gap:4px;padding:16px 20px 0;background:#0d1424;border-bottom:2px solid var(--border);flex-wrap:wrap;}
+.tab-btn{padding:10px 18px;background:transparent;border:none;color:var(--muted);font-family:'Nunito',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;border-radius:10px 10px 0 0;transition:all .3s;letter-spacing:.5px;border:2px solid transparent;border-bottom:none;}
+.tab-btn:hover{color:var(--text);background:var(--card);}
+.tab-btn.active{color:var(--gold);background:var(--card);border-color:var(--border);border-bottom-color:var(--card);}
+
+/* SECTIONS */
+.section{display:none;padding:24px 20px;max-width:1400px;margin:0 auto;}
+.section.active{display:block;}
+
+/* ======================== INFOGRAFIKA ======================== */
+.infog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-bottom:24px;}
+.infog-card{background:var(--card);border-radius:var(--radius);padding:22px;border:1px solid var(--border);position:relative;overflow:hidden;}
+.infog-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
+.infog-card.blue::before{background:linear-gradient(90deg,var(--blue),#60a5fa);}
+.infog-card.gold::before{background:linear-gradient(90deg,var(--gold),var(--gold2));}
+.infog-card.green::before{background:linear-gradient(90deg,var(--green),#34d399);}
+.infog-card.red::before{background:linear-gradient(90deg,var(--red),#f87171);}
+.infog-card.purple::before{background:linear-gradient(90deg,var(--purple),#a78bfa);}
+.infog-card.orange::before{background:linear-gradient(90deg,var(--orange),#fb923c);}
+.infog-icon{font-size:2.2rem;margin-bottom:12px;}
+.infog-title{font-weight:800;font-size:1rem;color:var(--gold);margin-bottom:10px;font-family:'Cinzel',serif;}
+.infog-list{list-style:none;}
+.infog-list li{padding:6px 0;border-bottom:1px solid var(--border);font-size:.86rem;color:var(--text);display:flex;gap:8px;align-items:flex-start;}
+.infog-list li:last-child{border-bottom:none;}
+.infog-list li::before{content:'▸';color:var(--gold);flex-shrink:0;margin-top:1px;}
+.infog-formula{background:var(--card2);border-radius:10px;padding:16px;margin-top:12px;border:1px dashed var(--gold);}
+.infog-formula .formula-text{font-size:.9rem;color:var(--gold);font-weight:700;text-align:center;line-height:1.8;}
+.infog-pct-row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;}
+.pct-badge{flex:1;min-width:80px;background:var(--card2);border-radius:10px;padding:10px;text-align:center;border:1px solid var(--border);}
+.pct-num{font-size:1.8rem;font-weight:800;color:var(--gold);font-family:'Cinzel',serif;}
+.pct-label{font-size:.72rem;color:var(--muted);margin-top:4px;}
+.flow-steps{display:flex;flex-direction:column;gap:8px;margin-top:12px;}
+.flow-step{background:var(--card2);border-radius:8px;padding:10px 14px;border-left:3px solid var(--blue);font-size:.84rem;}
+.flow-step b{color:var(--blue);}
+.tax-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.8rem;}
+.tax-table th{background:var(--card2);padding:8px;text-align:left;color:var(--gold);font-size:.75rem;}
+.tax-table td{padding:8px;border-bottom:1px solid var(--border);}
+.yes-badge{background:#10b98133;color:#10b981;padding:2px 8px;border-radius:20px;font-size:.72rem;font-weight:700;}
+.no-badge{background:#ef444433;color:#ef4444;padding:2px 8px;border-radius:20px;font-size:.72rem;font-weight:700;}
+.infog-section-title{font-family:'Cinzel',serif;color:var(--gold);font-size:1.3rem;font-weight:700;margin-bottom:18px;padding-bottom:8px;border-bottom:2px solid var(--gold);text-align:center;letter-spacing:2px;}
+
+/* ======================== FLASHCARDS ======================== */
+.flash-wrap{max-width:700px;margin:0 auto;}
+.flash-progress{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.flash-bar{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden;}
+.flash-bar-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:4px;transition:width .5s;}
+.flash-count{font-size:.85rem;color:var(--muted);font-weight:700;white-space:nowrap;}
+.flash-card{perspective:800px;height:220px;cursor:pointer;margin-bottom:20px;}
+.flash-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .6s;}
+.flash-card.flipped .flash-inner{transform:rotateY(180deg);}
+.flash-front,.flash-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;}
+.flash-front{background:linear-gradient(135deg,var(--card),var(--card2));border:2px solid var(--gold);box-shadow:0 8px 32px rgba(245,197,24,.15);}
+.flash-back{background:linear-gradient(135deg,#0d2a1a,#1a2d0d);border:2px solid var(--green);transform:rotateY(180deg);}
+.flash-front .q-text{font-size:1.1rem;font-weight:700;color:var(--text);line-height:1.6;}
+.flash-back .a-text{font-size:1rem;font-weight:600;color:#6ee7b7;line-height:1.7;}
+.flash-hint{text-align:center;color:var(--muted);font-size:.8rem;margin-bottom:16px;}
+.flash-cat{position:absolute;top:12px;left:12px;font-size:.7rem;background:var(--gold);color:#000;padding:3px 10px;border-radius:20px;font-weight:800;}
+.flash-nav{display:flex;gap:12px;justify-content:center;}
+.flash-btn{padding:10px 28px;border:none;border-radius:10px;font-family:'Nunito',sans-serif;font-weight:700;cursor:pointer;font-size:.9rem;transition:all .2s;}
+.flash-btn.prev{background:var(--card2);color:var(--text);border:1px solid var(--border);}
+.flash-btn.next{background:var(--gold);color:#000;}
+.flash-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.3);}
+.flash-cat-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;justify-content:center;}
+.flash-cat-btn{padding:6px 14px;border-radius:20px;border:2px solid var(--border);background:transparent;color:var(--muted);font-family:'Nunito',sans-serif;font-size:.78rem;font-weight:700;cursor:pointer;transition:all .2s;}
+.flash-cat-btn.active,.flash-cat-btn:hover{border-color:var(--gold);color:var(--gold);}
+
+/* ======================== WHEEL GAME ======================== */
+.wheel-layout{display:grid;grid-template-columns:450px 1fr;gap:24px;align-items:start;}
+@media(max-width:900px){.wheel-layout{grid-template-columns:1fr;}}
+.wheel-left{display:flex;flex-direction:column;align-items:center;gap:14px;}
+.wheel-canvas-wrap{position:relative;width:400px;height:400px;}
+#wheelCanvas{border-radius:50%;box-shadow:0 0 60px rgba(245,197,24,.3);}
+.spin-btn{padding:14px 40px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;border:none;border-radius:30px;font-family:'Cinzel',serif;font-size:1rem;font-weight:900;cursor:pointer;letter-spacing:2px;transition:all .3s;box-shadow:0 4px 20px rgba(245,197,24,.4);}
+.spin-btn:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 8px 30px rgba(245,197,24,.6);}
+.spin-btn:disabled{opacity:.5;cursor:not-allowed;}
+.wheel-stats{display:flex;gap:16px;}
+.w-stat{background:var(--card);border-radius:10px;padding:10px 18px;text-align:center;border:1px solid var(--border);}
+.w-stat-num{font-size:1.5rem;font-weight:800;color:var(--gold);font-family:'Cinzel',serif;}
+.w-stat-label{font-size:.7rem;color:var(--muted);}
+.q-panel{background:var(--card);border-radius:var(--radius);padding:24px;border:1px solid var(--border);min-height:420px;display:flex;flex-direction:column;}
+.q-panel-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+.q-cat-badge{padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:800;color:#000;}
+.q-cat-badge.qonunchilik{background:#3b82f6;}
+.q-cat-badge.hujjatlar{background:#10b981;}
+.q-cat-badge.buxgalteriya{background:#f97316;}
+.q-cat-badge.soliq{background:#ef4444;}
+.q-cat-badge.otkazmalar{background:#8b5cf6;}
+.q-num-badge{font-size:.8rem;color:var(--muted);font-weight:700;}
+.timer-ring{position:relative;width:56px;height:56px;}
+.timer-ring svg{position:absolute;top:0;left:0;transform:rotate(-90deg);}
+.timer-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:1rem;font-weight:800;color:var(--gold);font-family:'Cinzel',serif;}
+.q-text{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:20px;line-height:1.6;flex:1;}
+.q-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.q-opt{padding:12px 14px;background:var(--card2);border:2px solid var(--border);border-radius:10px;font-family:'Nunito',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;text-align:left;color:var(--text);}
+.q-opt:hover:not(:disabled){border-color:var(--gold);color:var(--gold);background:#1a2030;}
+.q-opt.correct{border-color:var(--green)!important;background:#10b98122!important;color:#6ee7b7!important;}
+.q-opt.wrong{border-color:var(--red)!important;background:#ef444422!important;color:#fca5a5!important;}
+.q-opt:disabled{cursor:not-allowed;}
+.q-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:300px;color:var(--muted);gap:16px;font-size:1rem;}
+.q-empty .big-emoji{font-size:3rem;}
+.q-score-row{display:flex;gap:16px;margin-top:16px;padding-top:14px;border-top:1px solid var(--border);}
+.q-score-item{display:flex;align-items:center;gap:6px;font-size:.82rem;font-weight:700;}
+.q-score-item .dot{width:10px;height:10px;border-radius:50%;}
+#fireworksCanvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;}
+.wheel-title-area{text-align:center;}
+.wheel-progress-text{font-size:.8rem;color:var(--muted);margin-top:6px;}
+
+/* ======================== TEST COMMON ======================== */
+.test-header{text-align:center;margin-bottom:28px;}
+.test-section-title{font-family:'Cinzel',serif;color:var(--gold);font-size:1.4rem;font-weight:700;letter-spacing:2px;}
+.test-desc{font-size:.85rem;color:var(--muted);margin-top:8px;}
+.test-questions{display:flex;flex-direction:column;gap:20px;max-width:900px;margin:0 auto;}
+.test-q-card{background:var(--card);border-radius:var(--radius);padding:20px;border:1px solid var(--border);transition:border-color .3s;}
+.test-q-card.answered-correct{border-color:var(--green);}
+.test-q-card.answered-wrong{border-color:var(--red);}
+.test-q-header{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;}
+.test-q-num{background:var(--gold);color:#000;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;flex-shrink:0;}
+.test-q-text{font-size:.95rem;font-weight:700;color:var(--text);line-height:1.6;}
+.test-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+@media(max-width:600px){.test-opts{grid-template-columns:1fr;}}
+.test-opt{padding:10px 14px;background:var(--card2);border:2px solid var(--border);border-radius:8px;font-family:'Nunito',sans-serif;font-size:.84rem;font-weight:600;cursor:pointer;transition:all .2s;text-align:left;color:var(--text);display:flex;align-items:center;gap:8px;}
+.test-opt:hover:not(:disabled):not(.selected){border-color:var(--gold);color:var(--gold);}
+.test-opt.correct{border-color:var(--green)!important;background:#10b98122!important;color:#6ee7b7!important;}
+.test-opt.wrong{border-color:var(--red)!important;background:#ef444422!important;color:#fca5a5!important;}
+.test-opt:disabled{cursor:not-allowed;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;flex-shrink:0;}
+.test-timer-bar{height:4px;background:var(--border);border-radius:2px;margin-bottom:16px;overflow:hidden;}
+.test-timer-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--gold));border-radius:2px;transition:width 1s linear;}
+.test-timer-fill.warning{background:linear-gradient(90deg,var(--gold),var(--orange));}
+.test-timer-fill.danger{background:linear-gradient(90deg,var(--orange),var(--red));}
+.test-submit-area{text-align:center;margin-top:28px;}
+.submit-btn{padding:14px 48px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;border:none;border-radius:30px;font-family:'Cinzel',serif;font-size:1rem;font-weight:900;cursor:pointer;letter-spacing:2px;transition:all .3s;box-shadow:0 4px 20px rgba(245,197,24,.4);}
+.submit-btn:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(245,197,24,.6);}
+.results-panel{background:var(--card);border-radius:var(--radius);padding:30px;margin-top:24px;max-width:900px;margin-left:auto;margin-right:auto;border:1px solid var(--border);}
+.results-title{font-family:'Cinzel',serif;color:var(--gold);font-size:1.3rem;text-align:center;margin-bottom:20px;}
+.results-score-big{font-size:3rem;font-weight:900;text-align:center;font-family:'Cinzel',serif;color:var(--gold);}
+.results-sub{text-align:center;color:var(--muted);margin-bottom:24px;font-size:.9rem;}
+.result-item{background:var(--card2);border-radius:10px;padding:14px;margin-bottom:10px;border:1px solid var(--border);}
+.result-item.result-correct{border-left:4px solid var(--green);}
+.result-item.result-wrong{border-left:4px solid var(--red);}
+.result-item-q{font-weight:700;font-size:.88rem;margin-bottom:8px;}
+.result-item-row{display:flex;gap:10px;font-size:.8rem;flex-wrap:wrap;}
+.result-user-ans{color:#fca5a5;font-weight:600;}
+.result-correct-ans{color:#6ee7b7;font-weight:600;}
+.result-label{color:var(--muted);}
+.reset-btn{padding:10px 28px;background:var(--card2);color:var(--text);border:2px solid var(--border);border-radius:10px;font-family:'Nunito',sans-serif;font-weight:700;cursor:pointer;transition:all .2s;display:block;margin:16px auto 0;}
+.reset-btn:hover{border-color:var(--gold);color:var(--gold);}
+.test-q-card .feedback-text{font-size:.8rem;color:var(--muted);margin-top:8px;padding:8px 10px;background:var(--card2);border-radius:6px;display:none;}
+.test-q-card.answered-wrong .feedback-text{display:block;border-left:3px solid var(--red);}
+.test-q-card.answered-correct .feedback-text{display:block;border-left:3px solid var(--green);}
+
+/* Wheel section title */
+.w-game-title{font-family:'Cinzel',serif;color:var(--gold);font-size:1.2rem;font-weight:700;text-align:center;margin-bottom:4px;}
+
+/* Scroll */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+
+/* Responsive */
+@media(max-width:700px){
+  .q-options{grid-template-columns:1fr;}
+  .wheel-canvas-wrap{width:300px;height:300px;}
+  #wheelCanvas{width:300px;height:300px;}
+}
+
+/* Countdown animation */
+@keyframes pulseRed{0%,100%{color:var(--gold);}50%{color:var(--red);}}
+.timer-danger .timer-text{animation:pulseRed .5s infinite;}
+
+/* Result animation */
+@keyframes bounceIn{0%{transform:scale(0);}60%{transform:scale(1.1);}100%{transform:scale(1);}}
+.results-panel{animation:bounceIn .4s ease;}
+</style>
+</head>
+<body>
+
+<canvas id="fireworksCanvas"></canvas>
+
+<header class="site-header">
+  <div>
+    <div class="logo-text">FAXR MADAD KONSALT</div>
+    <div class="logo-sub">BUXGALTERIYA MAKTABI</div>
+  </div>
+  <div class="header-badge">SIMULYATOR</div>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('infog')">📊 Infografika</button>
+  <button class="tab-btn" onclick="showTab('flash')">🃏 Fleshkarta</button>
+  <button class="tab-btn" onclick="showTab('wheel')">🎡 Omad G'ildiragi</button>
+  <button class="tab-btn" onclick="showTab('test1')">📝 Test 1 – Nazariya</button>
+  <button class="tab-btn" onclick="showTab('test2')">🔍 Test 2 – Tahlil</button>
+  <button class="tab-btn" onclick="showTab('test3')">💼 Test 3 – O'tkazmalar</button>
+</nav>
+
+<!-- ===================== INFOGRAFIKA ===================== -->
+<div id="infog" class="section active">
+  <p class="infog-section-title">VAQTINCHA MEHNATGA LAYOQATSIZLIK NAFAQASI</p>
+  <div class="infog-grid">
+
+    <div class="infog-card blue">
+      <div class="infog-icon">⚖️</div>
+      <div class="infog-title">TO'LOV TARTIBI (2026 y. 1 iyuldan)</div>
+      <ul class="infog-list">
+        <li>Dastlabki <b>5 kun</b> — ish beruvchi hisobidan</li>
+        <li>Keyingi kunlar — Davlat ijtimoiy sug'urta jamg'armasi (proaktiv)</li>
+        <li>Bir yilda ko'pi bilan <b>182 kalendar kun</b></li>
+        <li>Nafaqa elektron kasallik varaqasi asosida tayinlanadi</li>
+      </ul>
+    </div>
+
+    <div class="infog-card gold">
+      <div class="infog-icon">📋</div>
+      <div class="infog-title">NAFAQA TO'LANADIGAN HOLATLAR</div>
+      <ul class="infog-list">
+        <li>Kasallik (shikastlanish)</li>
+        <li>Sanatoriy va sog'lomlashtirish muassasasi</li>
+        <li>Kasallangan oila a'zosini parvarish</li>
+        <li>Karantin (majburiy)</li>
+        <li>Sil / kasb kasalligi — boshqa ishga o'tkazilganda</li>
+        <li>Reabilitatsiya muassasasida bo'lganda</li>
+      </ul>
+    </div>
+
+    <div class="infog-card green">
+      <div class="infog-icon">💰</div>
+      <div class="infog-title">NAFAQA FOIZLARI</div>
+      <div class="infog-pct-row">
+        <div class="pct-badge">
+          <div class="pct-num">80%</div>
+          <div class="pct-label">Staj ≥ 8 yil</div>
+        </div>
+        <div class="pct-badge">
+          <div class="pct-num">60%</div>
+          <div class="pct-label">Staj < 8 yil</div>
+        </div>
+        <div class="pct-badge">
+          <div class="pct-num">100%</div>
+          <div class="pct-label">Alohida toifalar</div>
+        </div>
+      </div>
+      <ul class="infog-list" style="margin-top:10px">
+        <li>100% — mehnatda mayiblanish, kasbiy kasallik</li>
+        <li>100% — baynalmilal jangchilar</li>
+        <li>100% — 3+ farzandi bor (16 yoshgacha)</li>
+        <li>100% — Chernobil AES ishtirokchilari</li>
+      </ul>
+    </div>
+
+    <div class="infog-card orange">
+      <div class="infog-icon">🧮</div>
+      <div class="infog-title">HISOBLASH FORMULASI</div>
+      <div class="infog-formula">
+        <div class="formula-text">
+          Nafaqa = O'OIH ÷ 25,3 × Nafaqa % × Ish kunlari<br>
+          <span style="font-size:.78rem;color:var(--muted)">O'OIH = Hisob-kitob davri daromadi ÷ To'liq oylar soni</span>
+        </div>
+      </div>
+      <ul class="infog-list" style="margin-top:10px">
+        <li>25,3 — ish kunlarining o'rtacha oylik soni</li>
+        <li>Hisob-kitob davri — 12 oy (kamida ishlagan oy)</li>
+        <li>6 kunlik ish haftasi hisobidan ish kunlari</li>
+        <li>Smenali ishda — soatlik hisob qo'llaniladi</li>
+      </ul>
+    </div>
+
+    <div class="infog-card red">
+      <div class="infog-icon">🚫</div>
+      <div class="infog-title">NAFAQA TO'LANMAYDIGAN HOLATLAR</div>
+      <ul class="infog-list">
+        <li>Ish haqi saqlanmaydigan ta'til</li>
+        <li>Bola parvarishi ta'tili</li>
+        <li>Harbiy o'quv yoki tekshirish yig'ini</li>
+        <li>O'quv ta'tili (ishlab chiqarishdan ajralmagan)</li>
+        <li>Ataylab salomatlikka zarar yetkazish</li>
+        <li>Giyohvandlik/mastlik holatida jarohat</li>
+        <li>Sud-majburiy davolanishda</li>
+      </ul>
+    </div>
+
+    <div class="infog-card purple">
+      <div class="infog-icon">💼</div>
+      <div class="infog-title">BUXGALTERIYA O'TKAZMALARI</div>
+      <div class="flow-steps">
+        <div class="flow-step"><b>Nafaqa hisoblandi:</b> Dt Xarajat h/v → Kt 6710</div>
+        <div class="flow-step"><b>JShDS ushlab qolindi:</b> Dt 6710 → Kt 6410</div>
+        <div class="flow-step"><b>Kassadan to'landi:</b> Dt 6710 → Kt 5010</div>
+        <div class="flow-step"><b>Karta orqali to'landi:</b> Dt 6710 → Kt 5110</div>
+        <div class="flow-step"><b>Qo'shimcha to'lov:</b> Dt 9430 → Kt 6710</div>
+        <div class="flow-step"><b>Ijtimoiy soliq (qo'sh.):</b> Dt Xarajat h/v → Kt 6520</div>
+      </div>
+    </div>
+
+    <div class="infog-card blue" style="grid-column: span 2;">
+      <div class="infog-icon">🏛️</div>
+      <div class="infog-title">SOLIQ OQIBATLARI</div>
+      <table class="tax-table">
+        <thead>
+          <tr><th>Soliq turi</th><th>Qonuniy chegarada nafaqa</th><th>Qo'shimcha to'lov / ortiqcha nafaqa</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>JShDS (JSHDS)</td>
+            <td>Boshqa daromad (SK 377-m.) — <span class="yes-badge">Solinadi</span></td>
+            <td>Mehnatga haq to'lash (SK 374-m.) — <span class="yes-badge">Solinadi</span></td>
+          </tr>
+          <tr>
+            <td>Ijtimoiy soliq</td>
+            <td><span class="no-badge">Solinmaydi</span> (mehnatga haq emas)</td>
+            <td><span class="yes-badge">Solinadi</span> (mehnatga haq tarkibida)</td>
+          </tr>
+          <tr>
+            <td>Foyda solig'i</td>
+            <td>Hujjatlashtirilganda <span class="yes-badge">Chegiriladi</span></td>
+            <td>Hujjatlashtirilganda <span class="yes-badge">Chegiriladi</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="infog-card green">
+      <div class="infog-icon">📅</div>
+      <div class="infog-title">BOLA KASALLIGI — NAFAQA MUDDATI</div>
+      <ul class="infog-list">
+        <li>Umumiy holda — ko'pi bilan <b>5 kun</b></li>
+        <li>14 yoshgacha bola — <b>+20 qo'shimcha kun</b></li>
+        <li>16 yoshgacha nogiron bola — <b>+40 qo'shimcha kun</b></li>
+        <li>Bola parvarishi ta'tilida bo'lsa nafaqa to'lanmaydi</li>
+        <li>Statsionarda 3 yoshgacha bola — barcha davr uchun</li>
+      </ul>
+    </div>
+
+    <div class="infog-card gold">
+      <div class="infog-icon">⏱️</div>
+      <div class="infog-title">SUG'URTA STAJI KOEFFITSIYENTLARI</div>
+      <div class="infog-pct-row">
+        <div class="pct-badge">
+          <div class="pct-num">60%</div>
+          <div class="pct-label">6–96 oy staj</div>
+        </div>
+        <div class="pct-badge">
+          <div class="pct-num">80%</div>
+          <div class="pct-label">97+ oy staj</div>
+        </div>
+        <div class="pct-badge">
+          <div class="pct-num">+20%</div>
+          <div class="pct-label">I-II guruh nogiron</div>
+        </div>
+      </div>
+      <ul class="infog-list" style="margin-top:10px">
+        <li>Minimal sug'urta staji — kamida <b>6 oy</b></li>
+        <li>77 kundan ortiq kasallikda koeffitsiyent <b>–10%</b></li>
+        <li>Nafaqada MHEKM ning 10 baravaridan oshmaydigan qismi</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== FLASHCARDS ===================== -->
+<div id="flash" class="section">
+  <p class="infog-section-title">FLESHKARTALAR</p>
+  <div class="flash-wrap">
+    <div class="flash-cat-filter" id="flashCatFilter"></div>
+    <div class="flash-progress">
+      <div class="flash-bar"><div class="flash-bar-fill" id="flashBarFill" style="width:0%"></div></div>
+      <div class="flash-count" id="flashCountText">1 / 20</div>
+    </div>
+    <p class="flash-hint">Kartani bosib javobni ko'ring 👆</p>
+    <div class="flash-card" id="flashCard" onclick="flipFlash()">
+      <div class="flash-inner" id="flashInner">
+        <div class="flash-front">
+          <span class="flash-cat" id="flashCatLabel">—</span>
+          <div class="q-text" id="flashQ" style="font-size:1rem;color:var(--text);"></div>
+        </div>
+        <div class="flash-back">
+          <div class="a-text" id="flashA"></div>
+        </div>
+      </div>
+    </div>
+    <div class="flash-nav">
+      <button class="flash-btn prev" onclick="prevFlash()">◀ Oldingi</button>
+      <button class="flash-btn next" onclick="nextFlash()">Keyingi ▶</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== WHEEL GAME ===================== -->
+<div id="wheel" class="section">
+  <p class="w-game-title">OMAD G'ILDIRAGI – BILIM TESTI</p>
+  <p style="text-align:center;color:var(--muted);font-size:.82rem;margin-bottom:18px;">G'ildirakni aylantiring va savolga javob bering!</p>
+  <div class="wheel-layout">
+    <div class="wheel-left">
+      <div class="wheel-canvas-wrap">
+        <canvas id="wheelCanvas" width="400" height="400"></canvas>
+      </div>
+      <button class="spin-btn" id="spinBtn" onclick="spinWheel()">🎡 AYLANTIRISH</button>
+      <div class="wheel-stats">
+        <div class="w-stat"><div class="w-stat-num" id="wCorrect">0</div><div class="w-stat-label">To'g'ri</div></div>
+        <div class="w-stat"><div class="w-stat-num" id="wWrong">0</div><div class="w-stat-label">Noto'g'ri</div></div>
+        <div class="w-stat"><div class="w-stat-num" id="wTotal">0/20</div><div class="w-stat-label">Jami</div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;width:100%">
+        <div id="wLegend"></div>
+      </div>
+    </div>
+    <div class="q-panel" id="qPanel">
+      <div class="q-empty">
+        <div class="big-emoji">🎡</div>
+        <div>G'ildirakni aylantiring va savol paydo bo'ladi!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TEST 1 ===================== -->
+<div id="test1" class="section">
+  <div class="test-header">
+    <div class="test-section-title">📝 TEST 1 – NAZARIYA</div>
+    <div class="test-desc">10 ta savol | Asosiy qonunchilik va me'yorlar bo'yicha</div>
+  </div>
+  <div class="test-timer-bar"><div class="test-timer-fill" id="t1TimerFill" style="width:100%"></div></div>
+  <div class="test-questions" id="test1Questions"></div>
+  <div class="test-submit-area">
+    <button class="submit-btn" id="t1SubmitBtn" onclick="submitTest(1)">NATIJANI KO'RISH</button>
+  </div>
+  <div id="test1Results" style="display:none"></div>
+</div>
+
+<!-- ===================== TEST 2 ===================== -->
+<div id="test2" class="section">
+  <div class="test-header">
+    <div class="test-section-title">🔍 TEST 2 – TAHLILIY SAVOLLAR</div>
+    <div class="test-desc">10 ta savol | "Nima noto'g'ri?", "Nima yetishmayapti?", "Qaysi holat?"</div>
+  </div>
+  <div class="test-timer-bar"><div class="test-timer-fill" id="t2TimerFill" style="width:100%"></div></div>
+  <div class="test-questions" id="test2Questions"></div>
+  <div class="test-submit-area">
+    <button class="submit-btn" id="t2SubmitBtn" onclick="submitTest(2)">NATIJANI KO'RISH</button>
+  </div>
+  <div id="test2Results" style="display:none"></div>
+</div>
+
+<!-- ===================== TEST 3 ===================== -->
+<div id="test3" class="section">
+  <div class="test-header">
+    <div class="test-section-title">💼 TEST 3 – BUXGALTERIYA O'TKAZMALARI</div>
+    <div class="test-desc">10 ta savol | Hisobvaraqlar va journal yozuvlari</div>
+  </div>
+  <div class="test-timer-bar"><div class="test-timer-fill" id="t3TimerFill" style="width:100%"></div></div>
+  <div class="test-questions" id="test3Questions"></div>
+  <div class="test-submit-area">
+    <button class="submit-btn" id="t3SubmitBtn" onclick="submitTest(3)">NATIJANI KO'RISH</button>
+  </div>
+  <div id="test3Results" style="display:none"></div>
+</div>
+
+<script>
+// ===================== TAB NAVIGATION =====================
+function showTab(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b=>{
+    if(b.getAttribute('onclick').includes("'"+id+"'"))b.classList.add('active');
+  });
+}
+
+// ===================== AUDIO ENGINE =====================
+const AudioCtx = window.AudioContext||window.webkitAudioContext;
+let audioCtx;
+function getAudio(){if(!audioCtx)audioCtx=new AudioCtx();return audioCtx;}
+function playBeep(freq,dur,type='sine',vol=0.3){
+  try{
+    const a=getAudio();const o=a.createOscillator();const g=a.createGain();
+    o.connect(g);g.connect(a.destination);o.type=type;o.frequency.value=freq;
+    g.gain.setValueAtTime(vol,a.currentTime);g.gain.exponentialRampToValueAtTime(0.001,a.currentTime+dur);
+    o.start();o.stop(a.currentTime+dur);
+  }catch(e){}
+}
+function playSuccess(){
+  [523,659,784,1047].forEach((f,i)=>setTimeout(()=>playBeep(f,.15,'sine',.25),i*100));
+  setTimeout(()=>playBeep(1047,.4,'sine',.2),400);
+}
+function playWrong(){
+  playBeep(200,.3,'sawtooth',.2);setTimeout(()=>playBeep(150,.3,'sawtooth',.2),150);
+}
+function playTick(){playBeep(880,.05,'square',.1);}
+function playSpin(){
+  for(let i=0;i<8;i++)setTimeout(()=>playBeep(300+i*60,.08,'triangle',.15),i*60);
+}
+
+// ===================== FIREWORKS =====================
+const fwCanvas=document.getElementById('fireworksCanvas');
+const fwCtx=fwCanvas.getContext('2d');
+let fwParticles=[];let fwActive=false;
+function resizeFW(){fwCanvas.width=window.innerWidth;fwCanvas.height=window.innerHeight;}
+resizeFW();window.addEventListener('resize',resizeFW);
+function launchFirework(){
+  const x=Math.random()*fwCanvas.width;const y=Math.random()*fwCanvas.height*.5+50;
+  const colors=['#f5c518','#ff4444','#44ff88','#4488ff','#ff44cc','#ffaa00'];
+  const color=colors[Math.floor(Math.random()*colors.length)];
+  for(let i=0;i<60;i++){
+    const angle=Math.random()*Math.PI*2;const speed=Math.random()*6+2;
+    fwParticles.push({x,y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed,life:1,color,size:Math.random()*3+1});
+  }
+}
+function animateFW(){
+  if(!fwActive)return;
+  fwCtx.clearRect(0,0,fwCanvas.width,fwCanvas.height);
+  fwParticles=fwParticles.filter(p=>p.life>0);
+  fwParticles.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;p.vy+=.12;p.life-=.018;
+    fwCtx.globalAlpha=p.life;fwCtx.fillStyle=p.color;
+    fwCtx.beginPath();fwCtx.arc(p.x,p.y,p.size,0,Math.PI*2);fwCtx.fill();
+  });
+  fwCtx.globalAlpha=1;
+  requestAnimationFrame(animateFW);
+}
+function showFireworks(dur=3000){
+  fwActive=true;animateFW();
+  const interval=setInterval(()=>launchFirework(),200);
+  setTimeout(()=>{fwActive=false;clearInterval(interval);fwCtx.clearRect(0,0,fwCanvas.width,fwCanvas.height);},dur);
+}
+
+// ===================== FLASHCARD DATA =====================
+const flashData=[
+  {cat:'Qonunchilik',q:'2026 yil 1 iyuldan nafaqaning dastlabki necha kuni ish beruvchi to\'laydi?',a:'Dastlabki 5 kun ish beruvchi tomonidan to\'lanadi. Keyingi kunlar esa Davlat ijtimoiy sug\'urta jamg\'armasi tomonidan proaktiv shaklda to\'lanadi.'},
+  {cat:'Qonunchilik',q:'Bir kalendar yil davomida nafaqa ko\'pi bilan necha kalendar kun to\'lanadi?',a:'Bir kalendar yil davomida nafaqa 182 kalendar kundan ko\'p bo\'lmagan qismi uchun to\'lanadi.'},
+  {cat:'Qonunchilik',q:'Ish staji 8 yil va undan ortiq bo\'lsa nafaqa foizi qancha?',a:'Ish staji 8 yil va undan ortiq bo\'lsa nafaqa o\'rtacha oylik ish haqining 80% miqdorida to\'lanadi.'},
+  {cat:'Qonunchilik',q:'Nafaqa to\'lash uchun minimal sug\'urta staji necha oy bo\'lishi shart?',a:'Davlat ijtimoiy sug\'urta bo\'yicha nafaqa tayinlanishi uchun kamida 6 oylik sug\'urta staji talab etiladi.'},
+  {cat:'Qonunchilik',q:'Ish staji 8 yildan kam bo\'lsa nafaqa necha foiz miqdorida to\'lanadi?',a:'Ish staji 8 yildan kam bo\'lsa nafaqa o\'rtacha oylik ish haqining 60% miqdorida to\'lanadi.'},
+  {cat:'Hujjatlar',q:'Kasallik varaqasi qanday shaklda rasmiylashtiriladi?',a:'2024 yil 1 yanvardan boshlab barcha hududlarda kasallik varaqasi faqat elektron shaklda rasmiylashtiriladi. Qog\'oz shaklda talab qilish taqiqlangan.'},
+  {cat:'Hujjatlar',q:'Kasallik varaqasi qaysi tizimda ochiladi va yuboriladi?',a:'Kasallik varaqasi Sog\'liqni saqlash vazirligining Yagona tibbiy axborot tizimida rasmiylashtiriladi va avtomatik "Ijtimoiy sug\'urta" axborot moduliga yuboriladi.'},
+  {cat:'Hujjatlar',q:'Nafaqa tayinlash uchun ish beruvchi qanday hujjatlarni rasmiylashtiradi?',a:'Ish beruvchi nafaqa tayinlash uchun: (1) Mehnatga layoqatsizlik varaqasi va (2) Nafaqa tayinlash komissiyasi bayonnomasini (yoki vakolatli xodim qarorini) rasmiylashtiradi.'},
+  {cat:'Hujjatlar',q:'Nafaqa tayinlash komissiyasi har bir varaq bo\'yicha nimalarni aniqlaydi?',a:'Komissiya (1) xodimning nafaqa olish huquqini, (2) to\'lanadigan kunlar sonini, (3) nafaqaning o\'rtacha oylik ish haqiga nisbatan foizdagi miqdorini aniqlaydi.'},
+  {cat:'Hujjatlar',q:'Xodim kasallik varaqasining mavjudligini qayerda tekshirishi mumkin?',a:'Xodim kasallik varaqasining ochilganligi va yopilganligini Yagona interaktiv davlat xizmatlari portalida (YaIDXP) tekshirishi mumkin.'},
+  {cat:'Buxgalteriya',q:'O\'rtacha kunlik ish haqini hisoblash formulasi qanday?',a:'O\'rtacha kunlik ish haqi = O\'rtacha oylik ish haqi ÷ 25,3. Bu yerda 25,3 — ish kunlarining o\'rtacha oylik soni (MK 257-m. 8-q.).'},
+  {cat:'Buxgalteriya',q:'O\'rtacha oylik ish haqini hisoblash davri necha oy?',a:'O\'rtacha oylik ish haqini aniqlash uchun hisob-kitob davri — vaqtincha mehnatga layoqatsizlik oyidan oldingi 12 oy (yoki haqiqatda ishlangan oylar).'},
+  {cat:'Buxgalteriya',q:'Nafaqa hisoblashda hisob-kitob davridan qanday muddatlar chiqarib tashlanadi?',a:'Hisob-kitob davridan: o\'rtacha ish haqi saqlangan davrlar, oldingi nafaqa olingan kunlar, bekor turib qolingan kunlar, va to\'liq ishlanmagan oylar chiqarib tashlanadi.'},
+  {cat:'Buxgalteriya',q:'Smenali ish rejimida nafaqa qanday hisoblanadi?',a:'Smenali ishda: Nafaqa = O\'rtacha soatlik ish haqi × Nafaqa foizi × Mehnatga layoqatsizlik davrida o\'tkazib yuborilgan soatlar soni.'},
+  {cat:'Buxgalteriya',q:'Lavozim maoshi oshganda nafaqani qayta hisoblash qachon kerak bo\'ladi?',a:'Vaqtincha mehnatga layoqatsizlik davrida ish haqi (lavozim maoshi, tariflar) o\'zgarganda nafaqa yangi maoshlarga muvofiq qayta hisoblanadi (MK 257-m. 12-q.).'},
+  {cat:'Soliq',q:'Qonuniy chegaralardagi nafaqa JShDS maqsadida qanday daromad hisoblanadi?',a:'Qonuniy chegaralardagi nafaqa jismoniy shaxsning boshqa daromadlari (SK 377-m.) deb tan olinadi va JShDS solinadi.'},
+  {cat:'Soliq',q:'Qonuniy chegaralardagi nafaqaga ijtimoiy soliq solinadimi?',a:'Yo\'q. Qonuniy chegaralardagi nafaqaga ijtimoiy soliq solinmaydi, chunki u mehnatga haq to\'lash tarzidagi daromadlarga kirmaydi (SK 403-404-m.).'},
+  {cat:'Soliq',q:'Nafaqaga qo\'shimcha to\'lovga ijtimoiy soliq solinadimi?',a:'Ha. Nafaqaga qo\'shimcha to\'lov ishlanmagan vaqt uchun haq to\'lash sifatida mehnatga haq to\'lash tarzidagi daromad hisoblanadi va ijtimoiy soliq solinadi.'},
+  {cat:'O\'tkazmalar',q:'Nafaqa hisoblanganda buxgalteriya o\'tkazmasi qanday?',a:'Nafaqa hisoblandi: Debet — Xarajatlarni hisobga oluvchi hisobvaraqlar → Kredit — 6710 (Mehnat haqi bo\'yicha xodimlar bilan hisob-kitoblar).'},
+  {cat:'O\'tkazmalar',q:'JShDS ushlab qolinganda o\'tkazma qanday yoziladi?',a:'JShDS ushlab qolindi: Debet — 6710 (Mehnat haqi bo\'yicha xodimlar) → Kredit — 6410 (Byudjetga to\'lovlar bo\'yicha qarzlar).'},
+  {cat:'O\'tkazmalar',q:'Nafaqa kassadan to\'langanda o\'tkazma qanday?',a:'Nafaqa kassadan to\'landi: Debet — 6710 (Mehnat haqi) → Kredit — 5010 (Milliy valyutadagi pul mablag\'lari).'},
+  {cat:'O\'tkazmalar',q:'Nafaqa plastik kartaga o\'tkazilganda buxgalteriya yozuvi qanday?',a:'Nafaqa plastik kartaga o\'tkazildi: Debet — 6710 (Mehnat haqi) → Kredit — 5110 (Hisob-kitob hisobvarag\'i).'},
+  {cat:'O\'tkazmalar',q:'Qo\'shimcha nafaqaga ijtimoiy soliq hisoblanganda o\'tkazma?',a:'Ijtimoiy soliq hisoblandi: Debet — Xarajatlarni hisobga oluvchi hisobvaraqlar → Kredit — 6520 (Maqsadli davlat jamg\'armalariga to\'lovlar).'},
+];
+let flashIdx=0;let flashFiltered=[...flashData];let flashFlipped=false;
+function initFlashCats(){
+  const cats=[...new Set(flashData.map(f=>f.cat))];
+  const wrap=document.getElementById('flashCatFilter');
+  let html='<button class="flash-cat-btn active" onclick="filterFlash(\'all\',this)">Hammasi</button>';
+  cats.forEach(c=>html+=`<button class="flash-cat-btn" onclick="filterFlash('${c}',this)">${c}</button>`);
+  wrap.innerHTML=html;
+  updateFlashCard();
+}
+function filterFlash(cat,btn){
+  document.querySelectorAll('.flash-cat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  flashFiltered=cat==='all'?[...flashData]:flashData.filter(f=>f.cat===cat);
+  flashIdx=0;flashFlipped=false;updateFlashCard();
+}
+function updateFlashCard(){
+  const f=flashFiltered[flashIdx];
+  document.getElementById('flashQ').textContent=f.q;
+  document.getElementById('flashA').textContent=f.a;
+  document.getElementById('flashCatLabel').textContent=f.cat;
+  document.getElementById('flashInner').style.transform='';
+  flashFlipped=false;
+  document.getElementById('flashCountText').textContent=(flashIdx+1)+' / '+flashFiltered.length;
+  document.getElementById('flashBarFill').style.width=((flashIdx+1)/flashFiltered.length*100)+'%';
+}
+function flipFlash(){
+  flashFlipped=!flashFlipped;
+  document.getElementById('flashInner').style.transform=flashFlipped?'rotateY(180deg)':'';
+}
+function prevFlash(){if(flashIdx>0){flashIdx--;updateFlashCard();}}
+function nextFlash(){if(flashIdx<flashFiltered.length-1){flashIdx++;updateFlashCard();}else{flashIdx=0;updateFlashCard();}}
+initFlashCats();
+
+// ===================== WHEEL GAME =====================
+const wheelCategories=[
+  {name:'Qonunchilik',color:'#3b82f6',cssClass:'qonunchilik'},
+  {name:'Hujjatlar',color:'#10b981',cssClass:'hujjatlar'},
+  {name:'Buxgalteriya',color:'#f97316',cssClass:'buxgalteriya'},
+  {name:'Soliq',color:'#ef4444',cssClass:'soliq'},
+  {name:"O'tkazmalar",color:'#8b5cf6',cssClass:'otkazmalar'},
+];
+
+const wheelQuestions=[
+  // Qonunchilik
+  {cat:0,q:"Ish beruvchi nafaqaning necha kunini to'laydi?",opts:["Dastlabki 3 kunni","Dastlabki 5 kunni","Dastlabki 7 kunni","Dastlabki 10 kunni"],correct:1},
+  {cat:0,q:"Ish staji 8 yildan ortiq bo'lsa nafaqa foizi?",opts:["Ish haqining 60%i","Ish haqining 70%i","Ish haqining 80%i","Ish haqining 100%i"],correct:2},
+  {cat:0,q:"Nafaqa tayinlash uchun minimal sug'urta staji?",opts:["Kamida 3 oylik staj","Kamida 6 oylik staj","Kamida 12 oylik staj","Kamida 24 oylik staj"],correct:1},
+  {cat:0,q:"Ish staji 8 yildan kam bo'lsa nafaqa foizi?",opts:["Ish haqining 50%i","Ish haqining 60%i","Ish haqining 70%i","Ish haqining 80%i"],correct:1},
+  // Hujjatlar
+  {cat:1,q:"Kasallik varaqasi qanday shaklda beriladi?",opts:["Qog'oz shaklda yozma","Og'zaki ravishda shifokordan","Faqat elektron shaklda","Ikki shaklda ham"],correct:2},
+  {cat:1,q:"Nafaqa to'lash uchun asosiy hujjat?",opts:["Shifokor xulosasi xati","Kasallik varaqasi hujjati","Tibbiy ma'lumotnoma blanki","Davolash varaqasi nusxa"],correct:1},
+  {cat:1,q:"Kasallik varaqasi qaysi tizimda ochiladi?",opts:["Soliq qo'mitasi tizim","Yagona tibbiy axborot tizim","Pensiya jamg'armasi tizim","Yagona milliy mehnat tizim"],correct:1},
+  {cat:1,q:"Nafaqa tayinlash uchun komissiya nima aniqlaydi?",opts:["Xodimning mehnat shartnomasini","Xodimning nafaqa olish huquqini","Kasallikning og'irlik darajasini","Shifokorning davolash usulini"],correct:1},
+  // Buxgalteriya
+  {cat:2,q:"O'rtacha kunlik ish haqi formulasidagi bo'luvchi?",opts:["21,5 — standart ish kuni","25,3 — o'rtacha ish kuni","30,0 — kalendar kun soni","22,0 — ish kunlari soni"],correct:1},
+  {cat:2,q:"Nafaqa hisoblanganda qaysi kredit hisobvaraq?",opts:["9430 — operatsion xarajat","6410 — byudjetga to'lovlar","6710 — mehnat haqi hisob","5010 — pul mablag'lari hisob"],correct:2},
+  {cat:2,q:"Qo'shimcha nafaqani qaysi hisobvaraqda aks ettirish?",opts:["6710 — mehnat haqi hisob","6520 — jamg'armaga to'lovlar","9430 — operatsion xarajat","6410 — byudjetga to'lovlar"],correct:2},
+  {cat:2,q:"JShDS ushlab qolinganda qaysi kredit hisobvaraq?",opts:["5110 — hisob-kitob hisobvaraq","6410 — byudjetga to'lovlar","6520 — jamg'armaga to'lovlar","6710 — mehnat haqi hisob"],correct:1},
+  // Soliq
+  {cat:3,q:"Qonuniy nafaqa JShDS bo'yicha qanday daromad?",opts:["Mehnatga haq to'lash","Jismoniy shaxs boshqa daromad","Mulkdan olingan daromad","Moddiy naf ko'rinish"],correct:1},
+  {cat:3,q:"Qonuniy nafaqaga ijtimoiy soliq solinadimi?",opts:["Ha, to'liq solinadi","Yo'q, solinmaydi","Faqat qisman solinadi","Yillik hisobda solinadi"],correct:1},
+  {cat:3,q:"Nafaqaga qo'shimcha to'lovga ijtimoiy soliq?",opts:["Yo'q, solinmaydi","Faqat byudjet tashkilot","Ha, solinadi","Ish beruvchi ixtiyori"],correct:2},
+  {cat:3,q:"Nafaqani foyda solig'ida qanday aks ettirish?",opts:["Chegirib tashlanmaydi","Hujjatlashgan holda chegiriladi","Daromad sifatida qo'shiladi","Umuman hisobga olinmaydi"],correct:1},
+  // O'tkazmalar
+  {cat:4,q:"Nafaqa kassadan to'langanda qaysi debet?",opts:["9430 — operatsion xarajat","6710 — mehnat haqi hisob","6520 — jamg'armaga to'lovlar","6410 — byudjetga to'lovlar"],correct:1},
+  {cat:4,q:"Nafaqa plastik kartaga o'tkazilganda kredit?",opts:["5010 — kassa hisobvarag'i","5110 — hisob-kitob hisobvaraq","6410 — byudjetga to'lovlar","6710 — mehnat haqi hisob"],correct:1},
+  {cat:4,q:"Ijtimoiy soliq hisoblanganda kredit hisobvaraq?",opts:["6410 — byudjetga to'lovlar","6520 — maqsadli jamg'arma","6710 — mehnat haqi hisob","9430 — operatsion xarajat"],correct:1},
+  {cat:4,q:"Qo'shimcha nafaqaga soliq hisoblanganda kredit?",opts:["6410 — byudjet to'lovlari","6520 — maqsadli jamg'arma","6710 — mehnat haqi hisob","9430 — operatsion xarajat"],correct:1},
+];
+
+let wAngle=0;let wSpinning=false;let wCorrectCount=0;let wWrongCount=0;let wAsked=0;
+let wUsedByCat=[0,0,0,0,0];let wCatQueues=[[],[],[],[],[]];
+// Build queues
+wheelQuestions.forEach((q,i)=>wCatQueues[q.cat].push(i));
+wCatQueues.forEach(q=>{for(let i=q.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[q[i],q[j]]=[q[j],q[i]];}});
+
+let wTimerInterval=null;let wTimeLeft=30;
+
+function drawWheel(){
+  const canvas=document.getElementById('wheelCanvas');
+  const ctx=canvas.getContext('2d');
+  const cx=canvas.width/2,cy=canvas.height/2,r=cx-10;
+  const n=wheelCategories.length;const sliceAngle=Math.PI*2/n;
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  // Shadow
+  ctx.save();ctx.shadowColor='rgba(245,197,24,.4)';ctx.shadowBlur=20;
+  wheelCategories.forEach((cat,i)=>{
+    const start=wAngle+i*sliceAngle;const end=start+sliceAngle;
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,start,end);ctx.closePath();
+    ctx.fillStyle=cat.color;ctx.fill();
+    ctx.strokeStyle='#0a0e1a';ctx.lineWidth=3;ctx.stroke();
+    // Text
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(start+sliceAngle/2);
+    ctx.textAlign='right';ctx.fillStyle='#fff';ctx.font='bold 13px Nunito';
+    ctx.shadowBlur=0;ctx.fillText(cat.name,r-12,5);ctx.restore();
+    // Question count
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(start+sliceAngle/2);
+    ctx.textAlign='right';ctx.fillStyle='rgba(255,255,255,.7)';ctx.font='11px Nunito';
+    ctx.shadowBlur=0;
+    const avail=wCatQueues[i].length;
+    ctx.fillText(avail+' savol',r-12,20);ctx.restore();
+  });
+  ctx.restore();
+  // Center circle
+  ctx.beginPath();ctx.arc(cx,cy,28,0,Math.PI*2);
+  const grad=ctx.createRadialGradient(cx,cy,5,cx,cy,28);
+  grad.addColorStop(0,'#f5c518');grad.addColorStop(1,'#e8a000');
+  ctx.fillStyle=grad;ctx.fill();ctx.strokeStyle='#0a0e1a';ctx.lineWidth=3;ctx.stroke();
+  ctx.fillStyle='#000';ctx.font='bold 18px Cinzel';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('🎡',cx,cy);
+  // Pointer
+  ctx.beginPath();ctx.moveTo(cx-14,4);ctx.lineTo(cx+14,4);ctx.lineTo(cx,r+8);ctx.closePath();
+  ctx.fillStyle='#f5c518';ctx.fill();ctx.strokeStyle='#0a0e1a';ctx.lineWidth=2;ctx.stroke();
+}
+drawWheel();
+
+// Build legend
+function buildWLegend(){
+  let html='<div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center">';
+  wheelCategories.forEach(c=>{
+    html+=`<div style="display:flex;align-items:center;gap:5px;font-size:.75rem;color:var(--text)"><span style="width:12px;height:12px;background:${c.color};border-radius:3px;display:inline-block"></span>${c.name}</div>`;
+  });
+  html+='</div>';
+  document.getElementById('wLegend').innerHTML=html;
+}
+buildWLegend();
+
+function spinWheel(){
+  if(wSpinning)return;
+  if(wAsked>=20){alert("Barcha 20 ta savol tugadi! Natija: "+wCorrectCount+"/20");return;}
+  wSpinning=true;
+  document.getElementById('spinBtn').disabled=true;
+  playSpin();
+  const spins=5+Math.random()*5;
+  const targetAngle=wAngle+spins*Math.PI*2;
+  const dur=3000+Math.random()*1000;
+  const start=performance.now();const startAngle=wAngle;
+  function easeOut(t){return 1-Math.pow(1-t,3);}
+  function frame(now){
+    const t=Math.min(1,(now-start)/dur);
+    wAngle=startAngle+easeOut(t)*(targetAngle-startAngle);
+    drawWheel();
+    if(t<1){requestAnimationFrame(frame);}
+    else{
+      wAngle=targetAngle%(Math.PI*2);
+      wSpinning=false;
+      // Determine which category pointer points to
+      const n=wheelCategories.length;const sliceAngle=Math.PI*2/n;
+      // Pointer is at top (angle = -PI/2 from center), wheel rotates by wAngle
+      const normalized=(((-Math.PI/2)-wAngle)%(Math.PI*2)+Math.PI*2)%(Math.PI*2);
+      const catIdx=Math.floor(normalized/sliceAngle)%n;
+      showWheelQuestion(catIdx);
+    }
+  }
+  requestAnimationFrame(frame);
+}
+
+function showWheelQuestion(catIdx){
+  // Find available question from this category or nearest available
+  let qIdx=null;let searchCat=catIdx;
+  for(let attempt=0;attempt<wheelCategories.length;attempt++){
+    const c=(catIdx+attempt)%wheelCategories.length;
+    if(wCatQueues[c].length>0){qIdx=wCatQueues[c].shift();searchCat=c;break;}
+  }
+  if(qIdx===null){document.getElementById('qPanel').innerHTML='<div class="q-empty"><div class="big-emoji">🏆</div><div>Barcha savollar tugadi!</div></div>';return;}
+  const q=wheelQuestions[qIdx];
+  renderWheelQuestion(q,searchCat);
+}
+
+function renderWheelQuestion(q,catIdx){
+  wTimeLeft=30;clearInterval(wTimerInterval);
+  const cat=wheelCategories[catIdx];
+  const optsHtml=q.opts.map((o,i)=>`<button class="q-opt" id="wopt${i}" onclick="answerWheel(${i},${q.correct})">${String.fromCharCode(65+i)}) ${o}</button>`).join('');
+  document.getElementById('qPanel').innerHTML=`
+    <div class="q-panel-top">
+      <span class="q-cat-badge ${cat.cssClass||''}">${cat.name}</span>
+      <div class="q-num-badge">Savol ${wAsked+1}/20</div>
+      <div class="timer-ring" id="wTimerRing">
+        <svg width="56" height="56" viewBox="0 0 56 56">
+          <circle cx="28" cy="28" r="22" fill="none" stroke="#1e293b" stroke-width="4"/>
+          <circle cx="28" cy="28" r="22" fill="none" stroke="#f5c518" stroke-width="4"
+            stroke-dasharray="138.2" stroke-dashoffset="0" id="wTimerCircle" stroke-linecap="round"/>
+        </svg>
+        <div class="timer-text" id="wTimerText">30</div>
+      </div>
+    </div>
+    <div class="q-text">${q.q}</div>
+    <div class="q-options">${optsHtml}</div>
+    <div class="q-score-row">
+      <div class="q-score-item"><div class="dot" style="background:var(--green)"></div><span id="ws1">${wCorrectCount} to'g'ri</span></div>
+      <div class="q-score-item"><div class="dot" style="background:var(--red)"></div><span id="ws2">${wWrongCount} noto'g'ri</span></div>
+    </div>`;
+  startWTimer(q.correct);
+}
+
+function startWTimer(correct){
+  const total=138.2;
+  wTimerInterval=setInterval(()=>{
+    wTimeLeft--;
+    const circle=document.getElementById('wTimerCircle');
+    const txt=document.getElementById('wTimerText');
+    const ring=document.getElementById('wTimerRing');
+    if(!circle)return;
+    const pct=wTimeLeft/30;
+    circle.style.strokeDashoffset=total*(1-pct);
+    txt.textContent=wTimeLeft;
+    if(wTimeLeft<=10)circle.style.stroke='#ef4444';
+    if(wTimeLeft<=5)ring.classList.add('timer-danger');
+    if(wTimeLeft<=0){clearInterval(wTimerInterval);timeoutWheel(correct);}
+    else playTick();
+  },1000);
+}
+
+function answerWheel(chosen,correct){
+  clearInterval(wTimerInterval);
+  wAsked++;
+  document.querySelectorAll('.q-opt').forEach(b=>b.disabled=true);
+  if(chosen===correct){
+    wCorrectCount++;
+    document.getElementById('wopt'+chosen).classList.add('correct');
+    playSuccess();showFireworks(2500);
+  }else{
+    wWrongCount++;
+    document.getElementById('wopt'+chosen).classList.add('wrong');
+    document.getElementById('wopt'+correct).classList.add('correct');
+    playWrong();
+  }
+  document.getElementById('wCorrect').textContent=wCorrectCount;
+  document.getElementById('wWrong').textContent=wWrongCount;
+  document.getElementById('wTotal').textContent=wAsked+'/20';
+  setTimeout(()=>{
+    if(wAsked<20){document.getElementById('spinBtn').disabled=false;}
+    else{
+      document.getElementById('qPanel').innerHTML=`<div class="q-empty"><div class="big-emoji">🏆</div><div>TABRIKLAYMIZ! Barcha 20 ta savol tugadi!<br><b style="color:var(--gold)">${wCorrectCount}/20 to'g'ri javob</b></div></div>`;
+      if(wCorrectCount>=15)showFireworks(5000);
+    }
+  },2000);
+}
+function timeoutWheel(correct){
+  wAsked++;wWrongCount++;
+  document.querySelectorAll('.q-opt').forEach(b=>b.disabled=true);
+  document.getElementById('wopt'+correct).classList.add('correct');
+  playWrong();
+  document.getElementById('wCorrect').textContent=wCorrectCount;
+  document.getElementById('wWrong').textContent=wWrongCount;
+  document.getElementById('wTotal').textContent=wAsked+'/20';
+  setTimeout(()=>{
+    if(wAsked<20)document.getElementById('spinBtn').disabled=false;
+    else{document.getElementById('qPanel').innerHTML='<div class="q-empty"><div class="big-emoji">🏆</div><div>Barcha 20 ta savol tugadi!</div></div>';}
+  },2000);
+}
+
+// ===================== TEST DATA =====================
+const test1Data=[
+  {q:"2026 yil 1 iyuldan boshlab nafaqaning birinchi necha kuni ish beruvchi to'laydi?",opts:["Birinchi 3 kun","Birinchi 5 kun","Birinchi 7 kun","Birinchi 10 kun"],correct:1,exp:"Qonunga ko'ra 2026 yil 1 iyuldan boshlab dastlabki 5 kun ish beruvchi, keyingisi DISJ orqali to'lanadi."},
+  {q:"Bir kalendar yil davomida nafaqa necha kalendar kungacha to'lanadi?",opts:["Ko'pi bilan 120 kun","Ko'pi bilan 182 kun","Ko'pi bilan 240 kun","Ko'pi bilan 365 kun"],correct:1,exp:"Bir kalendar yil davomida nafaqa ko'pi bilan 182 kalendar kun uchun to'lanadi."},
+  {q:"O'rtacha kunlik ish haqi formulasida qaysi son bo'luvchi sifatida ishlatiladi?",opts:["21,5 — ish kunlari soni","25,3 — ish kunlari soni","30,0 — kalendar kun soni","22,0 — standart kun soni"],correct:1,exp:"MK 257-m. 8-q. ga ko'ra 25,3 — ish kunlarining o'rtacha oylik soni."},
+  {q:"Kasallik varaqasi qachondan faqat elektron shaklda rasmiylashtiriladi?",opts:["2022 yil 1 yanvardan","2023 yil 1 yanvardan","2024 yil 1 yanvardan","2025 yil 1 yanvardan"],correct:2,exp:"2024 yil 1 yanvardan boshlab barcha hududlarda kasallik varaqasi faqat elektron shaklda rasmiylashtiriladi."},
+  {q:"Quyidagi holatlardan qaysi birida nafaqa TO'LANMAYDI?",opts:["Sanatoriyda davolanishda","Karantin muddatida","Ish haqi saqlanmaydigan ta'tilida","Kasb kasalligi tufayli"],correct:2,exp:"Ish haqi saqlanmaydigan ta'til davriga to'g'ri kelgan mehnatga layoqatsizlik uchun nafaqa to'lanmaydi."},
+  {q:"Ijtimoiy ahamiyatli kasallikda (sil) ish staji 8 yil va undan ortiq bo'lsa nafaqa foizi?",opts:["60%","80%","100%","120%"],correct:2,exp:"Sil kasalligi bo'yicha ish staji 8 yil va undan ortiq bo'lsa nafaqa 100% miqdorida to'lanadi."},
+  {q:"O'rtacha oylik ish haqini aniqlash uchun hisob-kitob davri nechi oyni tashkil qiladi?",opts:["3 oy","6 oy","12 oy","24 oy"],correct:2,exp:"Hisob-kitob davri — vaqtincha mehnatga layoqatsizlik oyidan oldingi 12 oy (MK 257-m. 1-q.)."},
+  {q:"16 yoshgacha nogironligi bo'lgan bola kasallansa nafaqa qo'shimcha necha kun uzaytiriladi?",opts:["Qo'shimcha 10 kun","Qo'shimcha 20 kun","Qo'shimcha 30 kun","Qo'shimcha 40 kun"],correct:3,exp:"16 yoshgacha nogironligi bo'lgan farzand uchun nafaqa qo'shimcha 40 kalendar kunga uzaytiriladi."},
+  {q:"Nafaqani to'lamagan ish beruvchiga jarima qancha BHM miqdorida?",opts:["5 dan 10 baravar","10 dan 15 baravar","15 dan 25 baravar","20 dan 30 baravar"],correct:1,exp:"MJTK 49-3-m. ga ko'ra nafaqani to'lashdan bosh tortganlik uchun BHMning 10 baravaridan 15 baravarigacha jarima."},
+  {q:"Sug'urta staji koeffitsienti 97 oy va undan ortiq bo'lsa qancha foiz?",opts:["60%","70%","80%","100%"],correct:2,exp:"97 va undan ortiq oy sug'urta stajiga ega bo'lganda staj koeffitsienti 80% qo'llaniladi."},
+];
+
+const test2Data=[
+  {q:"Quyidagi fikrlardan qaysi biri TO'G'RI EMAS?",opts:["Nafaqa 5 kun ish beruvchi","Kasallik varaqasi elektron","Staj 8 yilda nafaqa 60%","DISJ proaktiv to'laydi"],correct:2,exp:"Staj 8 yil va undan ortiq bo'lsa nafaqa 80%, 8 yildan kam bo'lsa 60%. 8 yilda 60% to'g'ri EMAS."},
+  {q:"O'rtacha oylik ish haqini hisoblashda nima CHIQARIB TASHLANADI?",opts:["Haqiqiy ish haqi summa","Ilmiy daraja uchun ustama","Oldingi nafaqa olingan kun","Rag'batlantirish to'lovi"],correct:2,exp:"O'rtacha ish haqini hisoblashda xodim nafaqa olgan davrlar (kunlar va summalar) hisob-kitob davridan chiqarib tashlanadi."},
+  {q:"Qaysi holda nafaqa 100% miqdorida to'LANMAYDI?",opts:["Mehnatda mayiblanishda","Baynalmilal jangchilarga","Ish staji 5 yilda","Kasbiy kasallikda"],correct:2,exp:"Ish staji 5 yil bo'lsa nafaqa 60% miqdorida to'lanadi. 100% faqat alohida toifalarga to'lanadi."},
+  {q:"Nafaqa hisoblashda quyidagi daromadlardan qaysi biri HISOBGA OLINMAYDI?",opts:["Rag'batlantirish to'lovi","Kompensatsiya to'lovi","Dividend daromadi","Ilmiy daraja ustamasi"],correct:2,exp:"Dividend mulkiy daromad (SK 375-m.) hisoblanadi va nafaqa hisoblashda hisobga olinmaydi."},
+  {q:"Bola kasalligida nafaqa BERILMAYDIGAN holat qaysi?",opts:["Ambulatoriya davolashda","Statsionar davolashda","Bola parvarishi ta'lilida","Karantin belgilanishida"],correct:2,exp:"Bolaning kasalligi bola parvarishlash ta'tiliga to'g'ri kelsa nafaqa to'lanmaydi."},
+  {q:"Quyidagi fikrlardan qaysi biri NOTO'G'RI?",opts:["JShDS nafaqadan ushlanadi","Qo'shimcha to'lovga solinadi","Nafaqa foyda solig'ida chegiriladi","Nafaqa byudjetga solinmaydi"],correct:3,exp:"Qonuniy nafaqa ijtimoiy soliqdan ozod qilingan (solinmaydi). 'Nafaqa byudjetga solinmaydi' NOTO'G'RI — JShDS solinadi."},
+  {q:"Hisob-kitob davrini aniqlashda nima INOBATGA OLINMAYDI?",opts:["To'liq ishlangan oylar","Ish haqi saqlanmagan ta'til","Haqiqiy hisoblangan daromad","Xodimning lavozim maoshi"],correct:1,exp:"Ish haqi saqlanmaydigan ta'til davri (kunlari va summalari) hisob-kitob davridan chiqarib tashlanadi."},
+  {q:"Quyidagi fikrlardan qaysi biri TO'G'RI EMAS?",opts:["Staj 97 oy — 80% koeff","Staj 6-96 oy — 60% koeff","77 kun ortiq — 10% kamayish","77 kun ortiq — 20% kamayish"],correct:3,exp:"77 kalendar kundan ortiq kasallikda nafaqa koeffitsienti 10% bandga kamaytiriladi (20% emas)."},
+  {q:"Qaysi davrda nafaqa to'lanmaydi, ammo kasallik varaqasi beriladi?",opts:["Sanatoriyda davolanishda","Harbiy o'quv yig'inida","Karantin muddatida","Kasb kasalligida"],correct:1,exp:"Harbiy o'quv yoki tekshiruv yig'ini davriga to'g'ri kelgan mehnatga layoqatsizlik uchun nafaqa to'lanmaydi."},
+  {q:"Ijtimoiy ahamiyatli kasallikda (onkologiya) staj 5 yildan kam bo'lsa nafaqa foizi?",opts:["100%","80%","60%","40%"],correct:2,exp:"Ijtimoiy ahamiyatli kasalliklarida staj 5 yilgacha bo'lsa nafaqa 60%, 5-8 yil — 80%, 8+ yil — 100%."},
+];
+
+const test3Data=[
+  {q:"Nafaqa hisoblanganda qaysi buxgalteriya o'tkazmasi to'g'ri?",opts:["Dt 9430 — Kt 6710","Dt xarajat — Kt 6710","Dt 6710 — Kt 5010","Dt 6410 — Kt 6710"],correct:1,exp:"Nafaqa hisoblanganda: Debet — Xarajatlarni hisobga oluvchi hisobvaraqlar → Kredit — 6710."},
+  {q:"JShDS nafaqadan ushlab qolinganda qaysi o'tkazma to'g'ri?",opts:["Dt 6520 — Kt 6410","Dt 6710 — Kt 6410","Dt 6410 — Kt 6710","Dt 6710 — Kt 6520"],correct:1,exp:"JShDS ushlab qolindi: Debet 6710 (Mehnat haqi) → Kredit 6410 (Byudjetga to'lovlar)."},
+  {q:"Nafaqa kassadan to'langanda qaysi o'tkazma to'g'ri?",opts:["Dt 6710 — Kt 5110","Dt 6710 — Kt 5010","Dt 5010 — Kt 6710","Dt 5110 — Kt 6710"],correct:1,exp:"Nafaqa kassadan to'landi: Debet 6710 → Kredit 5010 (Milliy valyutadagi pul mablag'lari)."},
+  {q:"Nafaqa plastik kartaga o'tkazilganda qaysi o'tkazma to'g'ri?",opts:["Dt 6710 — Kt 5010","Dt 6710 — Kt 5110","Dt 5110 — Kt 6710","Dt 5010 — Kt 6710"],correct:1,exp:"Nafaqa plastik kartaga: Debet 6710 (Mehnat haqi) → Kredit 5110 (Hisob-kitob hisobvarag'i)."},
+  {q:"Jamoa shartnomasi bo'yicha qo'shimcha to'lov hisoblanganda qaysi o'tkazma?",opts:["Dt 6710 — Kt 9430","Dt 9430 — Kt 6710","Dt 6520 — Kt 6710","Dt 6410 — Kt 6710"],correct:1,exp:"Qo'shimcha nafaqa to'lovi: Debet 9430 (Boshqa operatsion xarajatlar) → Kredit 6710."},
+  {q:"Qo'shimcha nafaqaga ijtimoiy soliq hisoblanganda kredit qaysi?",opts:["6410 — byudjet to'lovlari","6520 — maqsadli jamg'arma","6710 — mehnat haqi hisob","9430 — operatsion xarajat"],correct:1,exp:"Ijtimoiy soliq: Debet Xarajat h/v → Kredit 6520 (Maqsadli davlat jamg'armalariga to'lovlar)."},
+  {q:"Boshqaruv xodimining nafaqasi qaysi hisobvaraqda aks ettiriladi?",opts:["Ishlab chiqarish xarajati","9430 operatsion xarajat","6520 maqsadli jamg'arma","6410 byudjet to'lovlari"],correct:1,exp:"Boshqaruv xodimlari bo'yicha nafaqa 9430 (Boshqa operatsion xarajatlar) hisobvaraqda aks ettiriladi."},
+  {q:"Ishlab chiqarish xodimining nafaqasi qaysi hisobvaraqda?",opts:["9430 operatsion xarajat","Ishlab chiqarish xarajati","6520 maqsadli jamg'arma","6410 byudjet to'lovlari"],correct:1,exp:"Ishlab chiqarish jarayonida qatnashadigan xodimlar bo'yicha nafaqa mahsulot tannarxiga kiritiladi."},
+  {q:"Nafaqa hisobida 6710 hisobvarag'ining vazifasi qaysi?",opts:["Byudjet to'lovlari hisobi","Xodimlar bilan mehnat haqi hisob","Operatsion xarajatlar hisobi","Jamg'armaga to'lovlar hisobi"],correct:1,exp:"6710 — Mehnat haqi bo'yicha xodimlar bilan hisob-kitoblar hisobvarag'i."},
+  {q:"5110 hisobvarag'ining nomi to'g'ri keladi?",opts:["Milliy valyuta pul mablag'","Hisob-kitob hisobvarag'i","Byudjetga to'lovlar qarz","Mehnat haqi xodimlar"],correct:1,exp:"5110 — Hisob-kitob hisobvarag'i (bank hisobvarag'i). Plastik kartaga o'tkazmada kredit sifatida ishlatiladi."},
+];
+
+// ===================== TEST ENGINE =====================
+const testTimers={1:null,2:null,3:null};
+const testTimeLeft={1:600,2:600,3:600};// 10 min per test
+const testAnswers={1:{},2:{},3:{}};
+const testSubmitted={1:false,2:false,3:false};
+
+function initTest(n,data){
+  const container=document.getElementById('test'+n+'Questions');
+  let html='';
+  data.forEach((q,i)=>{
+    const opts=q.opts.map((o,j)=>`
+      <button class="test-opt" id="t${n}opt${i}_${j}" onclick="selectTestOpt(${n},${i},${j},${q.correct})">
+        <div class="opt-letter">${String.fromCharCode(65+j)}</div>
+        ${o}
+      </button>`).join('');
+    html+=`<div class="test-q-card" id="t${n}q${i}">
+      <div class="test-q-header">
+        <div class="test-q-num">${i+1}</div>
+        <div class="test-q-text">${q.q}</div>
+      </div>
+      <div class="test-opts">${opts}</div>
+      <div class="feedback-text" id="t${n}fb${i}"></div>
+    </div>`;
+  });
+  container.innerHTML=html;
+  startTestTimer(n);
+}
+
+function startTestTimer(n){
+  const fill=document.getElementById('t'+n+'TimerFill');
+  testTimers[n]=setInterval(()=>{
+    testTimeLeft[n]--;
+    const pct=testTimeLeft[n]/600*100;
+    fill.style.width=pct+'%';
+    if(pct<33)fill.classList.add('danger');
+    else if(pct<66)fill.classList.add('warning');
+    if(testTimeLeft[n]<=0){clearInterval(testTimers[n]);submitTest(n);}
+  },1000);
+}
+
+function selectTestOpt(testN,qIdx,optIdx,correct){
+  if(testSubmitted[testN])return;
+  const data=testN===1?test1Data:testN===2?test2Data:test3Data;
+  testAnswers[testN][qIdx]=optIdx;
+  const card=document.getElementById('t'+testN+'q'+qIdx);
+  // Clear previous selection
+  for(let j=0;j<4;j++){
+    const b=document.getElementById('t'+testN+'opt'+qIdx+'_'+j);
+    if(b){b.classList.remove('correct','wrong');b.disabled=false;}
+  }
+  // Mark answer
+  const chosen=document.getElementById('t'+testN+'opt'+qIdx+'_'+optIdx);
+  if(optIdx===correct){
+    chosen.classList.add('correct');card.classList.add('answered-correct');card.classList.remove('answered-wrong');
+    playBeep(880,.1,'sine',.15);
+  }else{
+    chosen.classList.add('wrong');
+    document.getElementById('t'+testN+'opt'+qIdx+'_'+correct).classList.add('correct');
+    card.classList.add('answered-wrong');card.classList.remove('answered-correct');
+    playBeep(220,.2,'sawtooth',.15);
+  }
+  // Show feedback
+  const fb=document.getElementById('t'+testN+'fb'+qIdx);
+  if(fb){fb.textContent=data[qIdx].exp;}
+  // Disable all opts for this question
+  for(let j=0;j<4;j++){const b=document.getElementById('t'+testN+'opt'+qIdx+'_'+j);if(b)b.disabled=true;}
+}
+
+function submitTest(n){
+  if(testSubmitted[n])return;
+  testSubmitted[n]=true;
+  clearInterval(testTimers[n]);
+  const data=n===1?test1Data:n===2?test2Data:test3Data;
+  // Disable all opts
+  data.forEach((_,i)=>{for(let j=0;j<4;j++){const b=document.getElementById('t'+n+'opt'+i+'_'+j);if(b)b.disabled=true;}});
+  // Calculate score
+  let correct=0;
+  data.forEach((q,i)=>{if(testAnswers[n][i]===q.correct)correct++;});
+  // Show results
+  const resDiv=document.getElementById('test'+n+'Results');
+  let itemsHtml='';
+  data.forEach((q,i)=>{
+    const userAns=testAnswers[n][i];
+    const isCorrect=userAns===q.correct;
+    const userTxt=userAns!==undefined?q.opts[userAns]:'Javob berilmadi';
+    const correctTxt=q.opts[q.correct];
+    itemsHtml+=`<div class="result-item ${isCorrect?'result-correct':'result-wrong'}">
+      <div class="result-item-q">${i+1}. ${q.q}</div>
+      <div class="result-item-row">
+        ${!isCorrect?`<span class="result-label">Sizning javob:</span><span class="result-user-ans">${userTxt}</span>`:''}
+        <span class="result-label">To'g'ri javob:</span><span class="result-correct-ans">${correctTxt}</span>
+      </div>
+      <div style="font-size:.78rem;color:var(--muted);margin-top:4px">${q.exp}</div>
+    </div>`;
+  });
+  const pct=Math.round(correct/data.length*100);
+  let emoji=pct>=80?'🏆':pct>=60?'👍':pct>=40?'📚':'💪';
+  resDiv.innerHTML=`<div class="results-panel">
+    <div class="results-title">NATIJALAR</div>
+    <div class="results-score-big">${emoji} ${correct}/${data.length}</div>
+    <div class="results-sub">${pct}% — ${pct>=80?'A\'lo!':pct>=60?'Yaxshi!':pct>=40?'Qoniqarli':'Ko\'proq o\'qing!'}</div>
+    ${itemsHtml}
+    <button class="reset-btn" onclick="resetTest(${n})">🔄 Qayta urinish</button>
+  </div>`;
+  resDiv.style.display='block';
+  if(pct>=80)showFireworks(3000);
+  document.getElementById('t'+n+'SubmitBtn').style.display='none';
+}
+
+function resetTest(n){
+  testSubmitted[n]=false;testAnswers[n]={};testTimeLeft[n]=600;
+  clearInterval(testTimers[n]);
+  document.getElementById('test'+n+'Results').style.display='none';
+  document.getElementById('t'+n+'SubmitBtn').style.display='block';
+  document.getElementById('t'+n+'TimerFill').style.width='100%';
+  document.getElementById('t'+n+'TimerFill').classList.remove('warning','danger');
+  const data=n===1?test1Data:n===2?test2Data:test3Data;
+  initTest(n,data);
+}
+
+// Initialize all tests
+initTest(1,test1Data);
+initTest(2,test2Data);
+initTest(3,test3Data);
+</script>
+</body>
+</html>
